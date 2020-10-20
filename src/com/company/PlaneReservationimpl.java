@@ -59,7 +59,7 @@ public class PlaneReservationimpl implements PlaneReservation {
 
     @Override
     public int status() {
-        return 0;
+        return money;
     }
 
     @Override

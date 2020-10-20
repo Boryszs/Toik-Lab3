@@ -96,6 +96,12 @@ public class PlaneReservationimpl implements PlaneReservation {
 
     @Override
     public boolean changePlaces(int sourcePlaceId, int destinationPlaceId) {
+        if(places.get(sourcePlaceId).getPlaceType()==places.get(destinationPlaceId).getPlaceType()){
+            Place place=places.get(destinationPlaceId);
+            places.set(destinationPlaceId,places.get(sourcePlaceId));
+            places.set(sourcePlaceId,place);
+            return true;
+        }
         return false;
     }
 }

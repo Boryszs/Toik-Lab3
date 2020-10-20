@@ -64,6 +64,17 @@ public class PlaneReservationimpl implements PlaneReservation {
 
     @Override
     public List<Place> freePlaces() {
+        List<Place> places1=new ArrayList<>();
+
+        for(Place place:places){
+            if(place.getUsername()==null){
+                places1.add(place);
+            }
+        }
+
+        if(!places1.isEmpty()) {
+            return places1;
+        }
         return null;
     }
 

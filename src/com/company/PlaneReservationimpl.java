@@ -43,7 +43,18 @@ public class PlaneReservationimpl implements PlaneReservation {
 
     @Override
     public Optional<Integer> cancel(int placeId) {
-        return Optional.empty();
+        if( placeId >=0 && placeId<=127) {
+            Place place = places.get(placeId);
+            if (place.getPlaceType() == PlaceType.STANDARD) {
+                money -= 800;
+            } else if (place.getPlaceType() == PlaceType.VIP) {
+                money -= 1200;
+            }
+            place.setUsername(null);
+            places.set(placeId, place);
+            return Optional.of(placeId);
+        }
+        return null;
     }
 
     @Override
